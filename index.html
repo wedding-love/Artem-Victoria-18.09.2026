@@ -266,9 +266,9 @@
         .timeline-item .time { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin-bottom: 6px; }
         .timeline-item .timeline-desc { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 400; color: #333; max-width: 300px; margin: 0 auto; }
 
-        /* ----- СЛАЙДЕР ----- */
+        /* ----- СЛАЙДЕР (увеличенный) ----- */
         .slider-screen { background: #fff; padding: 40px 20px 60px; flex-shrink: 0; }
-        .slider-wrapper { max-width: 380px; margin: 0 auto; position: relative; padding: 0 35px; }
+        .slider-wrapper { max-width: 550px; margin: 0 auto; position: relative; padding: 0 40px; }
         .slider-container { width: 100%; overflow: hidden; opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; border-radius: 4px; }
         .slider-container.visible { opacity: 1; transform: translateY(0); }
         .slider-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); will-change: transform; }
@@ -277,11 +277,11 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             background: transparent;
             border: none;
-            font-size: 20px;
+            font-size: 24px;
             color: #aaa;
             cursor: pointer;
             z-index: 5;
@@ -295,8 +295,8 @@
         .slider-btn:hover { color: #555; }
         .slider-btn.prev { left: 0; }
         .slider-btn.next { right: 0; }
-        .slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
-        .slider-dot { width: 7px; height: 7px; border-radius: 0; background: #d0d0d0; border: none; cursor: pointer; transition: background 0.3s; padding: 0; }
+        .slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
+        .slider-dot { width: 8px; height: 8px; border-radius: 0; background: #d0d0d0; border: none; cursor: pointer; transition: background 0.3s; padding: 0; }
         .slider-dot.active { background: #888; }
 
         /* ----- ДРЕСС-КОД, ПОЖЕЛАНИЯ, ФИНАЛ, RSVP, КОНТАКТЫ ----- */
@@ -369,14 +369,14 @@
             .victoria-name { margin-left: 50px; }
             .delicate-ampersand { font-size: 3.5rem; margin-top: -3px; margin-bottom: -3px; }
             .final-names .name-item { font-size: 36px; }
-            .slider-wrapper { max-width: 320px; padding: 0 30px; }
+            .slider-wrapper { max-width: 420px; padding: 0 35px; }
         }
         @media (max-width: 580px) {
             .name-line { font-size: 2.2rem; }
             .victoria-name { margin-left: 40px; }
             .delicate-ampersand { font-size: 2.8rem; margin-top: -2px; margin-bottom: -2px; }
             .final-names .name-item { font-size: 30px; }
-            .slider-wrapper { max-width: 280px; padding: 0 26px; }
+            .slider-wrapper { max-width: 340px; padding: 0 30px; }
         }
         @media (max-width: 480px) {
             .name-line { font-size: 1.8rem; }
@@ -384,7 +384,7 @@
             .delicate-ampersand { font-size: 2.2rem; margin-top: -1px; margin-bottom: -1px; }
             .contact-row { flex-direction: column; align-items: center; gap: 6px; }
             .final-names .name-item { font-size: 26px; }
-            .slider-wrapper { max-width: 240px; padding: 0 22px; }
+            .slider-wrapper { max-width: 290px; padding: 0 28px; }
         }
     </style>
 </head>
@@ -483,7 +483,7 @@
 
     <div class="divider-line"></div>
 
-    <!-- ФИНАЛЬНЫЙ БЛОК (имена + слайдер) -->
+    <!-- ФИНАЛЬНЫЙ БЛОК (имена + увеличенный слайдер) -->
     <div class="final-block" id="finalBlock">
         <div class="pre-closing">До скорой встречи!<br>С любовью</div>
         <div class="final-names">
@@ -492,7 +492,7 @@
             <span class="name-item name-right" id="finalArtem">Артём</span>
         </div>
 
-        <!-- СЛАЙДЕР -->
+        <!-- СЛАЙДЕР (увеличенный) -->
         <div class="slider-wrapper">
             <div class="slider-container" id="sliderContainer">
                 <div class="slider-track" id="sliderTrack">
