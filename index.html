@@ -34,7 +34,7 @@
         html, body { width: 100%; overflow-x: hidden; scroll-behavior: smooth; height: 100%; }
         body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; }
 
-        /* ----- ПЕРВЫЙ ЭКРАН (ФИКСИРОВАННЫЙ) ----- */
+        /* ----- ПЕРВЫЙ ЭКРАН ----- */
         .first-screen {
             position: relative;
             width: 100%;
@@ -241,7 +241,7 @@
         .icon-scene { width: 70px; height: 70px; margin: 0 auto 20px; opacity: 0; transform: scale(0.8); transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1); }
         .location-title { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-weight: 400; font-size: clamp(1.6rem, 4vw, 2rem); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; opacity: 0; transform: translateX(-60px); transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1); }
         .save-the-place { font-family: 'Pinyon Script', cursive; font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 400; margin-bottom: 20px; display: inline-block; transform: skewX(-3deg) translateX(60px); opacity: 0; transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1); }
-        .venue-name { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; line-height: 1.4; max-width: 260px; margin: 0 auto 30px; text-transform: uppercase; letter-spacing: 1px; opacity: 0; transform: translateY(55px); transition: opacity 2.8s cubic-bezier(0.16,1,0.3,1.1), transform 2.8s cubic-bezier(0.16,1,0.3,1.1); }
+        .venue-name { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; line-height: 1.4; max-width: 300px; margin: 0 auto 30px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0; transform: translateY(55px); transition: opacity 2.8s cubic-bezier(0.16,1,0.3,1.1), transform 2.8s cubic-bezier(0.16,1,0.3,1.1); }
         .btn-maps { display: inline-block; background: #1a1a1a; color: #fff; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 400; letter-spacing: 2px; padding: 12px 30px; text-transform: uppercase; opacity: 0; transform: translateY(55px); transition: opacity 3s cubic-bezier(0.16,1,0.3,1.1), transform 3s cubic-bezier(0.16,1,0.3,1.1); }
         .btn-maps:hover { background: #333; }
         .location-section.visible .location-bg { opacity: 1; }
@@ -267,18 +267,37 @@
         .timeline-item .timeline-desc { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 400; color: #333; max-width: 300px; margin: 0 auto; }
 
         /* ----- СЛАЙДЕР ----- */
-        .slider-screen { background: #fff; padding: 20px 0 40px; flex-shrink: 0; }
-        .slider-container { max-width: 450px; margin: 0 auto; position: relative; overflow: hidden; opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
+        .slider-screen { background: #fff; padding: 40px 20px 60px; flex-shrink: 0; }
+        .slider-wrapper { max-width: 380px; margin: 0 auto; position: relative; padding: 0 35px; }
+        .slider-container { width: 100%; overflow: hidden; opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; border-radius: 4px; }
         .slider-container.visible { opacity: 1; transform: translateY(0); }
         .slider-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); will-change: transform; }
         .slider-slide { min-width: 100%; aspect-ratio: 3 / 4; background-size: cover; background-position: center; background-color: #f5f0eb; }
-        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(255,255,255,0.9); border: none; border-radius: 0; font-size: 18px; color: #1a1a1a; cursor: pointer; z-index: 5; display: flex; align-items: center; justify-content: center; transition: background 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .slider-btn:hover { background: white; }
-        .slider-btn.prev { left: 10px; }
-        .slider-btn.next { right: 10px; }
-        .slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
-        .slider-dot { width: 8px; height: 8px; border-radius: 0; background: #ccc; border: none; cursor: pointer; transition: background 0.3s; padding: 0; }
-        .slider-dot.active { background: #1a1a1a; }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            color: #aaa;
+            cursor: pointer;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+            padding: 0;
+            line-height: 1;
+        }
+        .slider-btn:hover { color: #555; }
+        .slider-btn.prev { left: 0; }
+        .slider-btn.next { right: 0; }
+        .slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
+        .slider-dot { width: 7px; height: 7px; border-radius: 0; background: #d0d0d0; border: none; cursor: pointer; transition: background 0.3s; padding: 0; }
+        .slider-dot.active { background: #888; }
 
         /* ----- ДРЕСС-КОД, ПОЖЕЛАНИЯ, ФИНАЛ, RSVP, КОНТАКТЫ ----- */
         .dresscode-screen { background: #fff; padding: 40px 16px 60px; opacity: 0; transform: translateY(60px); transition: opacity 0.9s cubic-bezier(0.25, 0.8, 0.4, 1), transform 0.9s cubic-bezier(0.25, 0.8, 0.4, 1); flex-shrink: 0; }
@@ -298,11 +317,11 @@
         .wishes-text.visible { opacity: 1; transform: translateY(0); }
         .divider-line { width: 1px; height: 60px; background: #1a1a1a; margin: 0 auto; opacity: 0.4; }
 
-        .final-block { background: #fff; padding: 40px 20px 60px; text-align: center; opacity: 0; transform: translateY(60px); transition: opacity 0.9s cubic-bezier(0.25, 0.8, 0.4, 1), transform 0.9s cubic-bezier(0.25, 0.8, 0.4, 1); flex-shrink: 0; }
+        .final-block { background: #fff; padding: 40px 20px 30px; text-align: center; opacity: 0; transform: translateY(60px); transition: opacity 0.9s cubic-bezier(0.25, 0.8, 0.4, 1), transform 0.9s cubic-bezier(0.25, 0.8, 0.4, 1); flex-shrink: 0; }
         .final-block.visible { opacity: 1; transform: translateY(0); }
         .final-block .pre-closing { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 300; letter-spacing: 1px; color: #777; margin-bottom: 30px; opacity: 0; transform: translateY(30px); transition: opacity 1.2s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.2s cubic-bezier(0.25, 0.8, 0.4, 1); }
         .final-block.visible .pre-closing { opacity: 1; transform: translateY(0); }
-        .final-names { display: flex; flex-direction: column; align-items: center; margin-bottom: 35px; gap: 0; }
+        .final-names { display: flex; flex-direction: column; align-items: center; margin-bottom: 30px; gap: 0; }
         .final-names .name-item { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-weight: 300; font-size: 46px; text-transform: uppercase; letter-spacing: 5px; line-height: 1.2; color: #121212; opacity: 0; transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.4, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.4, 1); }
         .final-names .name-left { transform: translateX(-60px); }
         .final-names .name-right { transform: translateX(60px); }
@@ -310,15 +329,11 @@
         .final-block.visible .name-right { opacity: 1; transform: translateX(0); }
         .final-names .ampersand-item { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 38px; font-weight: 400; color: #121212; opacity: 0; transition: opacity 0.8s ease 0.2s; margin: 8px 0; }
         .final-block.visible .ampersand-item { opacity: 1; }
-        .final-photo-wrapper { max-width: 450px; margin: 0 auto; padding: 0 10px; opacity: 0; transform: translateY(50px); transition: opacity 1.4s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.4s cubic-bezier(0.25, 0.8, 0.4, 1); }
-        .final-block.visible .final-photo-wrapper { opacity: 1; transform: translateY(0); }
-        .final-photo { width: 100%; aspect-ratio: 3 / 4; background-image: url('молодые.jpg'); background-size: cover; background-position: center; background-color: #f5f0eb; }
 
         .rsvp-screen { background: #ffffff; padding: 60px 20px; opacity: 0; transform: translateY(50px); transition: opacity 0.9s cubic-bezier(0.25, 0.8, 0.4, 1), transform 0.9s cubic-bezier(0.25, 0.8, 0.4, 1); flex-shrink: 0; }
         .rsvp-screen.visible { opacity: 1; transform: translateY(0); }
         .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 40px 30px; box-shadow: none; }
         .rsvp-title { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-size: 32px; text-transform: uppercase; letter-spacing: 3px; color: #1a1a1a; margin-bottom: 12px; text-align: center; }
-        .rsvp-subtitle { font-family: 'Pinyon Script', cursive; font-size: 28px; text-align: center; color: #555; margin-bottom: 10px; border-bottom: 1px solid #eee; display: inline-block; width: 100%; padding-bottom: 15px; }
         .rsvp-deadline { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 300; color: #777; text-align: center; margin-bottom: 30px; letter-spacing: 0.5px; }
         .form-group { margin-bottom: 25px; }
         .form-group label { display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: #1a1a1a; }
@@ -354,12 +369,14 @@
             .victoria-name { margin-left: 50px; }
             .delicate-ampersand { font-size: 3.5rem; margin-top: -3px; margin-bottom: -3px; }
             .final-names .name-item { font-size: 36px; }
+            .slider-wrapper { max-width: 320px; padding: 0 30px; }
         }
         @media (max-width: 580px) {
             .name-line { font-size: 2.2rem; }
             .victoria-name { margin-left: 40px; }
             .delicate-ampersand { font-size: 2.8rem; margin-top: -2px; margin-bottom: -2px; }
             .final-names .name-item { font-size: 30px; }
+            .slider-wrapper { max-width: 280px; padding: 0 26px; }
         }
         @media (max-width: 480px) {
             .name-line { font-size: 1.8rem; }
@@ -367,6 +384,7 @@
             .delicate-ampersand { font-size: 2.2rem; margin-top: -1px; margin-bottom: -1px; }
             .contact-row { flex-direction: column; align-items: center; gap: 6px; }
             .final-names .name-item { font-size: 26px; }
+            .slider-wrapper { max-width: 240px; padding: 0 22px; }
         }
     </style>
 </head>
@@ -410,9 +428,9 @@
                 <div class="calendar-month">Сентябрь 2026</div>
                 <div class="calendar-grid">
                     <div class="weekday">пн</div><div class="weekday">вт</div><div class="weekday">ср</div><div class="weekday">чт</div><div class="weekday">пт</div><div class="weekday">сб</div><div class="weekday">вс</div>
-                    <div class="day empty-day"></div><div class="day empty-day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div>
-                    <div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div>
-                    <div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day special-day">18<svg class="heart-svg" viewBox="0 0 50 50"><path class="heart-path" d="M25,15 C21,8 11,9 11,18 C11,27 23,36 25,38 C27,36 39,27 39,18 C39,9 29,8 25,15 Z"/></svg></div><div class="day">19</div>
+                    <div class="day empty-day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div>
+                    <div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div>
+                    <div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day special-day">18<svg class="heart-svg" viewBox="0 0 50 50"><path class="heart-path" d="M25,15 C21,8 11,9 11,18 C11,27 23,36 25,38 C27,36 39,27 39,18 C39,9 29,8 25,15 Z"/></svg></div><div class="day">19</div>
                     <div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div>
                     <div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div>
                 </div>
@@ -427,8 +445,8 @@
             <div class="icon-scene"><svg class="location-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#1a1a1a"/></svg></div>
             <h2 class="location-title">МЕСТО<br>ПРОВЕДЕНИЯ</h2>
             <div class="save-the-place">Save the place!</div>
-            <p class="venue-name">г. Барановичи, Ресторан «Купидон», Трасса Р-4 6-й км, 4.</p>
-            <a href="https://yandex.by/maps/org/kupidon/155164078978/" target="_blank" class="btn-maps">Как добраться</a>
+            <p class="venue-name">Прованс Холл<br>Минск, ул. Сухая, 2, 2 этаж</p>
+            <a href="https://yandex.by/maps/org/provans/1199821459/" target="_blank" class="btn-maps">Как добраться</a>
         </div>
     </div>
 
@@ -439,28 +457,10 @@
             <div class="timeline-subtitle">Of the day</div>
             <div class="timeline-middle-line"></div>
             <div class="timeline-list">
-                <div class="timeline-item slide-left"><div class="time">15:00</div><div class="timeline-desc">Сбор гостей и фуршет</div></div>
+                <div class="timeline-item slide-left"><div class="time">15:00-15:30</div><div class="timeline-desc">Сбор гостей и фуршет</div></div>
                 <div class="timeline-item slide-left"><div class="time">16:00</div><div class="timeline-desc">Выездная регистрация</div></div>
                 <div class="timeline-item slide-right"><div class="time">17:00</div><div class="timeline-desc">Праздничный ужин</div></div>
                 <div class="timeline-item slide-right"><div class="time">23:00</div><div class="timeline-desc">Завершение вечера</div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- СЛАЙДЕР -->
-    <div class="slider-screen" id="sliderScreen">
-        <div class="slider-container" id="sliderContainer">
-            <div class="slider-track" id="sliderTrack">
-                <div class="slider-slide" style="background-image: url('1.jpg');"></div>
-                <div class="slider-slide" style="background-image: url('2.jpg');"></div>
-                <div class="slider-slide" style="background-image: url('3.jpg');"></div>
-            </div>
-            <button class="slider-btn prev" id="sliderPrev">‹</button>
-            <button class="slider-btn next" id="sliderNext">›</button>
-            <div class="slider-dots" id="sliderDots">
-                <button class="slider-dot active" data-index="0"></button>
-                <button class="slider-dot" data-index="1"></button>
-                <button class="slider-dot" data-index="2"></button>
             </div>
         </div>
     </div>
@@ -483,7 +483,7 @@
 
     <div class="divider-line"></div>
 
-    <!-- ФИНАЛЬНЫЙ БЛОК -->
+    <!-- ФИНАЛЬНЫЙ БЛОК (имена + слайдер) -->
     <div class="final-block" id="finalBlock">
         <div class="pre-closing">До скорой встречи!<br>С любовью</div>
         <div class="final-names">
@@ -491,8 +491,23 @@
             <span class="ampersand-item">&</span>
             <span class="name-item name-right" id="finalArtem">Артём</span>
         </div>
-        <div class="final-photo-wrapper">
-            <div class="final-photo"></div>
+
+        <!-- СЛАЙДЕР -->
+        <div class="slider-wrapper">
+            <div class="slider-container" id="sliderContainer">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slider-slide" style="background-image: url('1.jpg');"></div>
+                    <div class="slider-slide" style="background-image: url('2.jpg');"></div>
+                    <div class="slider-slide" style="background-image: url('3.jpg');"></div>
+                </div>
+            </div>
+            <button class="slider-btn prev" id="sliderPrev">‹</button>
+            <button class="slider-btn next" id="sliderNext">›</button>
+        </div>
+        <div class="slider-dots" id="sliderDots">
+            <button class="slider-dot active" data-index="0"></button>
+            <button class="slider-dot" data-index="1"></button>
+            <button class="slider-dot" data-index="2"></button>
         </div>
     </div>
 
@@ -604,7 +619,7 @@
                     entries.forEach(e => {
                         if(e.isIntersecting) {
                             timeline.classList.add('visible');
-                            const delays = [300, 800, 1300, 1800, 2200];
+                            const delays = [300, 800, 1300, 1800];
                             document.querySelectorAll('.timeline-item').forEach((item, i) => {
                                 setTimeout(() => item.classList.add('visible'), delays[i] || 1800);
                             });
@@ -644,18 +659,26 @@
                     });
                 }
 
-                document.getElementById('sliderPrev').addEventListener('click', () => goTo(currentIndex - 1));
-                document.getElementById('sliderNext').addEventListener('click', () => goTo(currentIndex + 1));
+                document.getElementById('sliderPrev').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    goTo(currentIndex - 1);
+                });
+                document.getElementById('sliderNext').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    goTo(currentIndex + 1);
+                });
                 dots.forEach((dot, i) => {
                     dot.addEventListener('click', () => goTo(i));
                 });
 
-                // Автопрокрутка
                 let autoSlide = setInterval(() => goTo(currentIndex + 1), 4000);
-                sliderContainer.addEventListener('mouseenter', () => clearInterval(autoSlide));
-                sliderContainer.addEventListener('mouseleave', () => {
-                    autoSlide = setInterval(() => goTo(currentIndex + 1), 4000);
-                });
+                const wrapper = sliderContainer.closest('.slider-wrapper');
+                if (wrapper) {
+                    wrapper.addEventListener('mouseenter', () => clearInterval(autoSlide));
+                    wrapper.addEventListener('mouseleave', () => {
+                        autoSlide = setInterval(() => goTo(currentIndex + 1), 4000);
+                    });
+                }
             }
 
             const dressScreen = document.getElementById('dresscodeScreen');
